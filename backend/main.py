@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers import character
+from app.routers import character
 from database import client
 
 app = FastAPI()
@@ -8,7 +8,7 @@ app = FastAPI()
 # Настройка CORS
 origins = [
     "http://localhost:8002",
-    "http://172.0.0.1:8002"
+    "http://127.0.0.1:8002"
 ]
 
 app.add_middleware(

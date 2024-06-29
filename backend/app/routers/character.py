@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from crud.character import get_characters, get_character, create_character, update_character, delete_character
-from models.character import character_collection
-from schemas.character import Character, CharacterCreate
+from app.crud.character import get_characters, get_character, create_character, update_character, delete_character
+from app.models.character import character_collection
+from app.schemas.character import Character, CharacterCreate
 from dependencies import get_database
 
 router = APIRouter(

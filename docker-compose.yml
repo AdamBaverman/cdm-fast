@@ -8,8 +8,9 @@ services:
     ports:
       - "8000:80"
     volumes:
-      - ./backend/app:/app
+      - ./backend:/app
     environment:
+      - PYTHONUNBUFFERED=1
       - MONGO_URI=mongodb://mongo:27017
     networks:
       - app-network

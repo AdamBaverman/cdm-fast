@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
   const fetchCharacters = async () => {
     try {
-      const response = await axios.get('http://89.111.140.224:8070/characters');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/characters`); // .env файл должен находится в корневой директории проекта frontend, а не в frontend/src
       setCharacters(response.data);
     } catch (error) {
       console.error('Error fetching characters:', error);
@@ -44,7 +44,7 @@ const App: React.FC = () => {
   const handleAddCharacter = async () => {
     try {
       const newCharacter: Character = { full_name: fullName, age: Number(age), gender };
-      await axios.post('http://89.111.140.224:8070/characters', newCharacter);
+      await axios.post(`${process.env.REACT_APP_API_URL}/characters`, newCharacter);
       setFullName('');
       setAge('');
       setGender('');
@@ -58,7 +58,7 @@ const App: React.FC = () => {
     if (!editingCharacter) return;
     try {
       const updatedCharacter: Character = { full_name: fullName, age: Number(age), gender };
-      await axios.put(`http://89.111.140.224:8070/characters/${editingCharacter.id}`, updatedCharacter);
+      await axios.put(`${process.env.REACT_APP_API_URL}/characters/${editingCharacter.id}`, updatedCharacter);
       setEditingCharacter(null);
       setFullName('');
       setAge('');
@@ -79,7 +79,7 @@ const App: React.FC = () => {
   const handleDeleteCharacter = async (id?: string) => {
     if (!id) return;
     try {
-      await axios.delete(`http://89.111.140.224:8070/characters/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/characters/${id}`);
       fetchCharacters();
     } catch (error) {
       console.error('Error deleting character:', error);

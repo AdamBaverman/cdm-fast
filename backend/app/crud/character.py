@@ -1,7 +1,7 @@
 from typing import List
 from bson import ObjectId
 from pymongo.collection import Collection
-from schemas.character import CharacterCreate, Character
+from app.schemas.character import CharacterCreate, Character
 
 def get_characters(collection: Collection) -> List[Character]:
     characters = list(collection.find())
