@@ -156,7 +156,7 @@ cython_debug/
 
 # Frontend
 # dependencies
-/node_modules
+node_modules
 /.pnp
 .pnp.js
 
@@ -181,3 +181,4 @@ out
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+frontend/package-lock.json
